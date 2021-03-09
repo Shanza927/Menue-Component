@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
 import {Media} from 'reactstrap'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./component.css" ;
 class Component1 extends Component{
     constructor(props) {
         super(props);
@@ -44,28 +45,26 @@ class Component1 extends Component{
 
     }
     render(){
-        const menue = this.state.dishes.map((dish) => {
+        const menue = this.state.dishes.map((dish) =>{
             return(
-                <div key={dish.id} className="col-12 mt-5" >
-                    <Media tag="li">
-                        <Media left middle >
-                            <Media object src={dish.image} alt={dish.name}>
-                            </Media>
-                            <Media body className="ml-5 mt-3">
-                                <Media heading> {dish.name} </Media>
-                                <p> {dish.description} </p>
-                            </Media>
-                        </Media>
-                    </Media>
+                <div key={dish.id}  className="col-lg-4 col-md-6 col-12 m-1" >
+                      <div className="card" >       
+                      <img className="card-img-top " src={dish.image} alt={dish.name}  />
+  <div className="card-body">
+    <h4 className="card-title"> {dish.name}  </h4>
+    <p className="card-text"> {dish.description} </p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+
                 </div>
-            );
-        });
+                  
+                              );
+        } ) ;
         return(
             <div className="container">
-                <div className="row">
-                   <Media list>
+                <div className="row">               
                        {menue}
-                   </Media>
                 </div>
             </div>
         );
